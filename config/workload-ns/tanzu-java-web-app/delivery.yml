@@ -57,7 +57,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: gcr.io/fe-cpage/tap/workloads/tanzu-java-web-app-workload-ns@sha256:34c207f9c2ce428b5184b100aa49406bd34cb6195ce45365dd75f914435f206a
+        image: gcr.io/fe-cpage/tap/workloads/tanzu-java-web-app-workload-ns@sha256:d2afcabba0f3b3f7708b59099f19c20020a3448749e8c99d08a1e49742ea655d
         livenessProbe:
           httpGet:
             path: /livez
