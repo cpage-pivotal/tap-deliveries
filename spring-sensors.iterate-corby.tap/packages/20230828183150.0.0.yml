@@ -1,0 +1,33 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  name: spring-sensors.iterate-corby.tap.20230828183150.0.0
+spec:
+  refName: spring-sensors.iterate-corby.tap
+  version: 20230828183150.0.0
+  releaseNotes: |
+    Release v20230828183150.0.0 of package spring-sensors.iterate-corby.tap
+  template:
+    spec:
+      fetch:
+      - imgpkgBundle:
+          image: gcr.io/fe-cpage/tap/supply-chain/spring-sensors-iterate-corby-bundle@sha256:b00d9098a49612b1cc3601ffc964c66a4ac58122e3b1e2a50354399a3bea5405
+      template:
+      - ytt:
+          paths:
+          - .
+      - kbld:
+          paths:
+          - .imgpkg/images.yml
+          - '-'
+      deploy:
+      - kapp: {}
+  valuesSchema:
+    openAPIv3:
+      type: object
+      additionalProperties: false
+      properties:
+        workload_name:
+          type: string
+          default: ""
+
