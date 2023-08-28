@@ -9,7 +9,7 @@ metadata:
   labels:
     app.kubernetes.io/part-of: tanzu-java-web-app
     apps.tanzu.vmware.com/auto-configure-actuators: "true"
-    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/scanning: "true"
     apps.tanzu.vmware.com/workload-type: web
     kapp.k14s.io/app: "1692998913085115245"
     kapp.k14s.io/association: v1.ea2c7693b8692fd1a0f35b2888278263
