@@ -7,5 +7,3 @@ stringData:
  values.yaml: |
    ---
    workload_name: spring-sensors
-   replicas: 2
-   hostname: spring-sensors.tap.tanzu.corby.page
