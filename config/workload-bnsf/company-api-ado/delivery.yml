@@ -1,0 +1,45 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: company-api-ado
+  annotations:
+    ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
+    ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
+    kapp.k14s.io/change-rule: upsert after upserting servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/part-of: company-api-ado
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    kapp.k14s.io/app: "1682466086870371062"
+    kapp.k14s.io/association: v1.340c901db25dd5866ee201c3bf8b4aee
+    app.kubernetes.io/component: run
+    carto.run/workload-name: company-api-ado
+spec:
+  template:
+    metadata:
+      annotations:
+        conventions.carto.run/applied-conventions: |-
+          appliveview-sample/app-live-view-appflavour-check
+          spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/app-live-view-appflavour-check
+        developer.conventions/target-containers: workload
+        kapp.k14s.io/identity: v1;workload-bnsf/carto.run/Workload/company-api-ado;carto.run/v1alpha1
+        kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"labels":{"app.kubernetes.io/part-of":"company-api-ado","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1682466086870371062","kapp.k14s.io/association":"v1.340c901db25dd5866ee201c3bf8b4aee"},"name":"company-api-ado","namespace":"workload-bnsf"},"spec":{"build":{"env":[{"name":"BP_KEEP_FILES","value":"docs/*"}]},"params":[{"name":"testing_pipeline_matching_labels","value":{"apps.tanzu.vmware.com/pipeline":"ado-pipeline"}},{"name":"testing_pipeline_params","value":{"org-name":"tap-tsl","pipeline-id":1,"pipeline-params":"{\"example_param\": \"testing\"}","project-name":"tap-ado-blog","secret-name":"ado-token"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/warroyo/tap-go-sample"}}}}'
+        kapp.k14s.io/original-diff-md5: c6e94dc94aed3401b5d0f26ed6c0bff3
+      labels:
+        app.kubernetes.io/component: run
+        app.kubernetes.io/part-of: company-api-ado
+        apps.tanzu.vmware.com/has-tests: "true"
+        apps.tanzu.vmware.com/workload-type: web
+        carto.run/workload-name: company-api-ado
+        kapp.k14s.io/app: "1682466086870371062"
+        kapp.k14s.io/association: v1.340c901db25dd5866ee201c3bf8b4aee
+    spec:
+      containers:
+      - image: gcr.io/fe-cpage/tap/supply-chain/company-api-ado-workload-bnsf@sha256:d08e235c0874681491eb4025a0c0b4499519c7b1cc910bdeb53e894934a04a35
+        name: workload
+        resources: {}
+        securityContext:
+          runAsUser: 1000
+      serviceAccountName: default
+
