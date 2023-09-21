@@ -36,7 +36,7 @@ spec:
         kapp.k14s.io/association: v1.340c901db25dd5866ee201c3bf8b4aee
     spec:
       containers:
-      - image: gcr.io/fe-cpage/tap/supply-chain/company-api-ado-workload-bnsf@sha256:d08e235c0874681491eb4025a0c0b4499519c7b1cc910bdeb53e894934a04a35
+      - image: gcr.io/fe-cpage/tap/supply-chain/company-api-ado-workload-bnsf@sha256:fd7bd465990aa38eedcf84c7b2c5a10f01e73fc65bc8f1f2970db25abfdbbbdd
         name: workload
         resources: {}
         securityContext:
