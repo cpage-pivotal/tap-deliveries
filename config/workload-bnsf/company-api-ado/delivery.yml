@@ -16,6 +16,7 @@ spec:
   template:
     metadata:
       annotations:
+        apps.tanzu.vmware.com/correlationid: https://github.com/warroyo/tap-go-sample?sub_path=/
         conventions.carto.run/applied-conventions: |-
           appliveview-sample/app-live-view-appflavour-check
           spring-boot-convention/auto-configure-actuators-check
@@ -30,8 +31,6 @@ spec:
         apps.tanzu.vmware.com/has-tests: "true"
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: company-api-ado
-        kapp.k14s.io/app: "1682466086870371062"
-        kapp.k14s.io/association: v1.340c901db25dd5866ee201c3bf8b4aee
     spec:
       containers:
       - image: gcr.io/fe-cpage/tap/supply-chain/company-api-ado-workload-bnsf@sha256:bd56e69b7ffabaa47edbe4a4989ef2459b0f1af6ef9eb3a90e775316114a1665
