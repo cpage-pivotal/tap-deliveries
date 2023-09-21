@@ -10,8 +10,6 @@ metadata:
     app.kubernetes.io/part-of: sample-app
     apps.tanzu.vmware.com/scanning: "true"
     apps.tanzu.vmware.com/workload-type: web
-    kapp.k14s.io/app: "1682466086870371062"
-    kapp.k14s.io/association: v1.0caae3a4904957f80dc0f74b0090ae2d
     tanzu.app.live.view: "true"
     tanzu.app.live.view.application.flavours: steeltoe
     tanzu.app.live.view.application.name: weatherforecast-csharp
