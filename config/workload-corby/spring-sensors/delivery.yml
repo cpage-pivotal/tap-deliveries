@@ -10,8 +10,6 @@ metadata:
     app.kubernetes.io/part-of: spring-sensors
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/workload-type: web
-    kapp.k14s.io/app: "1682466086870371062"
-    kapp.k14s.io/association: v1.69e2be903fdf5c5658346852030bdfa4
     app.kubernetes.io/component: run
     carto.run/workload-name: spring-sensors
 spec:
