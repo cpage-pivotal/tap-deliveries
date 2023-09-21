@@ -16,6 +16,7 @@ spec:
   template:
     metadata:
       annotations:
+        apps.tanzu.vmware.com/correlationid: https://github.com/cpage-pivotal/spring-sensors?sub_path=/
         autoscaling.knative.dev/minScale: "1"
         boot.spring.io/version: 3.1.2
         conventions.carto.run/applied-conventions: |-
@@ -41,8 +42,6 @@ spec:
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: spring-sensors
         conventions.carto.run/framework: spring-boot
-        kapp.k14s.io/app: "1682466086870371062"
-        kapp.k14s.io/association: v1.69e2be903fdf5c5658346852030bdfa4
         tanzu.app.live.view: "true"
         tanzu.app.live.view.application.actuator.path: actuator
         tanzu.app.live.view.application.actuator.port: "8080"
