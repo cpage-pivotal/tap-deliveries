@@ -37,7 +37,7 @@ spec:
         kapp.k14s.io/association: v1.11c7e9579581b7d812294d13514c4f9e
     spec:
       containers:
-      - image: gcr.io/fe-cpage/tap/supply-chain/llama-workload-openai@sha256:6e29b4cb9baeb850aaad011ca346d334d9d4d13ed6c92721971b480e3a7b4ca8
+      - image: gcr.io/fe-cpage/tap/supply-chain/llama-workload-openai@sha256:15e65699cace8781c14c01a7597f59ee4ca3536d2aa9f5bfa25597aa36165595
         name: workload
         resources: {}
         securityContext:
