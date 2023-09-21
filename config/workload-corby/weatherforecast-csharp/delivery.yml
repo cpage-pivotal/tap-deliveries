@@ -19,6 +19,7 @@ spec:
   template:
     metadata:
       annotations:
+        apps.tanzu.vmware.com/correlationid: https://github.com/vmware-tanzu/application-accelerator-samples?sub_path=csharp-weatherforecast
         autoscaling.knative.dev/minScale: "1"
         conventions.carto.run/applied-conventions: |-
           appliveview-sample/app-live-view-appflavour-check
@@ -36,8 +37,6 @@ spec:
         apps.tanzu.vmware.com/scanning: "true"
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: weatherforecast-csharp
-        kapp.k14s.io/app: "1682466086870371062"
-        kapp.k14s.io/association: v1.0caae3a4904957f80dc0f74b0090ae2d
         tanzu.app.live.view: "true"
         tanzu.app.live.view.application.flavours: steeltoe
         tanzu.app.live.view.application.name: weatherforecast-csharp
