@@ -33,7 +33,7 @@ spec:
         carto.run/workload-name: company-api-ado
     spec:
       containers:
-      - image: gcr.io/fe-cpage/tap/supply-chain/company-api-ado-workload-bnsf@sha256:bd56e69b7ffabaa47edbe4a4989ef2459b0f1af6ef9eb3a90e775316114a1665
+      - image: gcr.io/fe-cpage/tap/supply-chain/company-api-ado-workload-bnsf@sha256:583ce4f558e96686b5654f557bcdb6e71641e9838f9fd7c2f2d6b33c46e35a91
         name: workload
         resources: {}
         securityContext:
