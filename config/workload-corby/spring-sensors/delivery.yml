@@ -18,7 +18,7 @@ spec:
       annotations:
         apps.tanzu.vmware.com/correlationid: https://github.com/cpage-pivotal/spring-sensors?sub_path=/
         autoscaling.knative.dev/minScale: "1"
-        boot.spring.io/version: 3.1.2
+        boot.spring.io/version: 3.1.4
         conventions.carto.run/applied-conventions: |-
           appliveview-sample/app-live-view-appflavour-check
           spring-boot-convention/auto-configure-actuators-check
@@ -52,7 +52,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: gcr.io/fe-cpage/tap/supply-chain/spring-sensors-workload-corby@sha256:07601751c3a0ec90dd4c4be5b0363a1319fdd86532aea8f2ea4213ceb544d2c7
+        image: gcr.io/fe-cpage/tap/supply-chain/spring-sensors-workload-corby@sha256:8c6edb759c160954ce8976f371439f3438546866df3e55282e98394d2c387c81
         livenessProbe:
           httpGet:
             path: /livez
