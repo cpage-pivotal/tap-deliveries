@@ -11,14 +11,13 @@ metadata:
     apps.tanzu.vmware.com/auto-configure-actuators: "true"
     apps.tanzu.vmware.com/scanning: "true"
     apps.tanzu.vmware.com/workload-type: web
-    kapp.k14s.io/app: "1693522469395169101"
-    kapp.k14s.io/association: v1.ea2c7693b8692fd1a0f35b2888278263
     app.kubernetes.io/component: run
     carto.run/workload-name: tanzu-java-web-app
 spec:
   template:
     metadata:
       annotations:
+        apps.tanzu.vmware.com/correlationid: https://github.com/Tanzu-Solutions-Engineering/tanzu-java-web-app?sub_path=/
         autoscaling.knative.dev/minScale: "1"
         boot.spring.io/actuator: http://:8081/actuator
         boot.spring.io/version: 3.1.0
@@ -45,8 +44,6 @@ spec:
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: tanzu-java-web-app
         conventions.carto.run/framework: spring-boot
-        kapp.k14s.io/app: "1693522469395169101"
-        kapp.k14s.io/association: v1.ea2c7693b8692fd1a0f35b2888278263
         tanzu.app.live.view: "true"
         tanzu.app.live.view.application.actuator.path: actuator
         tanzu.app.live.view.application.actuator.port: "8081"
@@ -57,7 +54,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: gcr.io/fe-cpage/tap/workloads/tanzu-java-web-app-workload-ml@sha256:ad33ffcbaecbfc64b59cbd087924269144e31f324c3df19ea5c284dce4231f29
+        image: gcr.io/fe-cpage/tap/workloads/tanzu-java-web-app-workload-ml@sha256:19e55d355f9f4068c6cf1b5ce8276110e862955eb6589ec8a0d86984b83f082c
         livenessProbe:
           httpGet:
             path: /livez
@@ -75,5 +72,10 @@ spec:
         resources: {}
         securityContext:
           runAsUser: 1000
+        startupProbe:
+          httpGet:
+            path: /readyz
+            port: 8080
+            scheme: HTTP
       serviceAccountName: default
 
