@@ -27,8 +27,6 @@ metadata:
     app.kubernetes.io/part-of: openai
     apps.tanzu.vmware.com/scanning: "true"
     apps.tanzu.vmware.com/workload-type: web
-    kapp.k14s.io/app: "1682466086870371062"
-    kapp.k14s.io/association: v1.11c7e9579581b7d812294d13514c4f9e
     app.kubernetes.io/component: run
     carto.run/workload-name: llama
 spec:
@@ -56,8 +54,6 @@ metadata:
     app.kubernetes.io/part-of: openai
     apps.tanzu.vmware.com/scanning: "true"
     apps.tanzu.vmware.com/workload-type: web
-    kapp.k14s.io/app: "1682466086870371062"
-    kapp.k14s.io/association: v1.11c7e9579581b7d812294d13514c4f9e
     app.kubernetes.io/component: run
     carto.run/workload-name: llama
 spec:
