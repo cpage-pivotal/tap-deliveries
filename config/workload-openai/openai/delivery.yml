@@ -51,7 +51,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080"
-        image: gcr.io/fe-cpage/tap/supply-chain/openai-workload-openai@sha256:46e0e0f2082eaa21089d8a58d7920e9b2f762ec038c76bed1df27b26ea915b86
+        image: gcr.io/fe-cpage/tap/supply-chain/openai-workload-openai@sha256:f0671a9b1e7e7f67664ff80ea8f87881b61b2c56d3c9fdefd6d7fd1993fa1050
         livenessProbe:
           httpGet:
             path: /livez
@@ -68,7 +68,14 @@ spec:
             scheme: HTTP
         resources: {}
         securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
           runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
         startupProbe:
           httpGet:
             path: /readyz
