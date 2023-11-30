@@ -51,7 +51,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: gcr.io/fe-cpage/tap/supply-chain/tanzu-java-web-app-workload-corby@sha256:12f4b71e6a5f0c767b2f78891a6cba93065312d3271ae8023d1ac823173d66d4
+        image: gcr.io/fe-cpage/tap/supply-chain/tanzu-java-web-app-workload-corby@sha256:3e61fd2a0b7e093b53a87cdf069ad21d3db69457307ce64572401c16aa7b54a9
         name: workload
         ports:
         - containerPort: 8080
