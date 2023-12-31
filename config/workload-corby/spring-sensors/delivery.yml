@@ -52,7 +52,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: gcr.io/fe-cpage/tap/supply-chain/spring-sensors-workload-corby@sha256:7032ef639d6d606f5ed72ef515b277f1dbd9aadd73fe5805a175917349cab7c9
+        image: gcr.io/fe-cpage/tap/supply-chain/spring-sensors-workload-corby@sha256:708a7464e1cb6151daedf111467eb5140412c23ca30d5d17d645af7cd6949f55
         livenessProbe:
           httpGet:
             path: /livez
