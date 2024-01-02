@@ -42,7 +42,7 @@ spec:
         tanzu.app.live.view.application.name: weatherforecast-csharp
     spec:
       containers:
-      - image: gcr.io/fe-cpage/tap/supply-chain/weatherforecast-csharp-workload-corby@sha256:de684150b3fd57ae69fbdec534b73cf269c54f713acb794b2d7e0045fcb89a5c
+      - image: gcr.io/fe-cpage/tap/supply-chain/weatherforecast-csharp-workload-corby@sha256:676659f522614e5deffc2bab1ca775137c3117d1eabb42af6483ccd9e81daeaf
         name: workload
         resources: {}
         securityContext:
