@@ -22,10 +22,10 @@ spec:
         apps.tanzu.vmware.com/correlationid: https://github.com/vmware-tanzu/application-accelerator-samples?sub_path=csharp-weatherforecast
         autoscaling.knative.dev/minScale: "1"
         conventions.carto.run/applied-conventions: |-
-          appliveview-sample/app-live-view-appflavour-check
           appliveview-sample/app-live-view-connector-steeltoe
           appliveview-sample/app-live-view-appflavours-steeltoe
           spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/is-native-app-check
           spring-boot-convention/app-live-view-appflavour-check
         developer.conventions/target-containers: workload
         kapp.k14s.io/identity: v1;workload-corby/carto.run/Workload/weatherforecast-csharp;carto.run/v1alpha1
@@ -42,7 +42,7 @@ spec:
         tanzu.app.live.view.application.name: weatherforecast-csharp
     spec:
       containers:
-      - image: gcr.io/fe-cpage/tap/supply-chain/weatherforecast-csharp-workload-corby@sha256:a9372c5fea8d9c279174c39b3aeea9da983db4f3d6b00e2ce85e21ced8b0d248
+      - image: gcr.io/fe-cpage/tap/supply-chain/weatherforecast-csharp-workload-corby@sha256:84d3e553dc69158022e8785550518c77c9c78e125583bd8e50c4634e111a983c
         name: workload
         resources: {}
         securityContext:
