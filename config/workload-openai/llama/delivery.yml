@@ -19,8 +19,8 @@ spec:
         apps.tanzu.vmware.com/correlationid: https://github.com/cpage-pivotal/llama?sub_path=/
         autoscaling.knative.dev/minScale: "1"
         conventions.carto.run/applied-conventions: |-
-          appliveview-sample/app-live-view-appflavour-check
           spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/is-native-app-check
           spring-boot-convention/app-live-view-appflavour-check
         developer.conventions/target-containers: workload
         kapp.k14s.io/identity: v1;workload-openai/carto.run/Workload/llama;carto.run/v1alpha1
@@ -34,7 +34,7 @@ spec:
         carto.run/workload-name: llama
     spec:
       containers:
-      - image: gcr.io/fe-cpage/tap/supply-chain/llama-workload-openai@sha256:b6f1d7cf991482b7a764687d17c0e1089465b7936ef9bfa9ec378a896d9f4904
+      - image: gcr.io/fe-cpage/tap/supply-chain/llama-workload-openai@sha256:28979b9ca43b2faf15f052d4d9e190df90bfc3b46118012dab8fb383cb97bbb5
         name: workload
         resources: {}
         securityContext:
