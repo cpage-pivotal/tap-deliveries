@@ -34,7 +34,7 @@ spec:
         carto.run/workload-name: llama
     spec:
       containers:
-      - image: gcr.io/fe-cpage/tap/supply-chain/llama-workload-openai@sha256:28979b9ca43b2faf15f052d4d9e190df90bfc3b46118012dab8fb383cb97bbb5
+      - image: gcr.io/fe-cpage/tap/supply-chain/llama-workload-openai@sha256:371572132afaf5bee9f28c54389d510fb4744b130daf2880752a8df2db3db009
         name: workload
         resources: {}
         securityContext:
