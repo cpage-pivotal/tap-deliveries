@@ -22,6 +22,7 @@ spec:
         conventions.carto.run/applied-conventions: |-
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/is-native-app-check
+          spring-boot-convention/is-prometheus-enabled-check
           spring-boot-convention/spring-boot
           spring-boot-convention/spring-boot-web
           spring-boot-convention/spring-boot-actuator
@@ -51,7 +52,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080"
-        image: gcr.io/fe-cpage/tap/supply-chain/openai-workload-openai@sha256:e463b4f9eb85810327bbbc85d73a64ffeef082f4dbb81590b2e72a22cfd70cfb
+        image: gcr.io/fe-cpage/tap/supply-chain/openai-workload-openai@sha256:6084264a46664e5c3591f44784a3d53e1366d3006305a2af1372e11947fad235
         livenessProbe:
           httpGet:
             path: /livez
