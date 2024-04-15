@@ -26,6 +26,7 @@ spec:
           appliveview-sample/app-live-view-appflavours-steeltoe
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/is-native-app-check
+          spring-boot-convention/is-prometheus-enabled-check
           spring-boot-convention/app-live-view-appflavour-check
         developer.conventions/target-containers: workload
         kapp.k14s.io/identity: v1;workload-corby/carto.run/Workload/weatherforecast-csharp;carto.run/v1alpha1
@@ -42,7 +43,7 @@ spec:
         tanzu.app.live.view.application.name: weatherforecast-csharp
     spec:
       containers:
-      - image: gcr.io/fe-cpage/tap/supply-chain/weatherforecast-csharp-workload-corby@sha256:e5375a07b8cc11c84cb3ab9292538bac73ed850c7c3c16782950da485b1302a8
+      - image: gcr.io/fe-cpage/tap/supply-chain/weatherforecast-csharp-workload-corby@sha256:6f447bfa660c2292c9c6ec57bdc3bac7c5e1e93a4a03452088d9fe34bb7b3e10
         name: workload
         resources: {}
         securityContext:
