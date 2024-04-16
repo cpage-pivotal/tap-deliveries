@@ -18,6 +18,19 @@ spec:
       annotations:
         apps.tanzu.vmware.com/correlationid: https://github.com/cpage-pivotal/spring-sensors?sub_path=/
         autoscaling.knative.dev/minScale: "1"
+        boot.spring.io/version: 3.1.4
+        conventions.carto.run/applied-conventions: |-
+          spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/is-native-app-check
+          spring-boot-convention/is-prometheus-enabled-check
+          spring-boot-convention/spring-boot
+          spring-boot-convention/spring-boot-graceful-shutdown
+          spring-boot-convention/spring-boot-web
+          spring-boot-convention/spring-boot-actuator
+          spring-boot-convention/spring-boot-actuator-probes
+          spring-boot-convention/app-live-view-appflavour-check
+          spring-boot-convention/app-live-view-connector-boot
+          spring-boot-convention/app-live-view-appflavours-boot
         developer.conventions/target-containers: workload
         kapp.k14s.io/identity: v1;workload-corby/carto.run/Workload/spring-sensors;carto.run/v1alpha1
         kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"labels":{"app.kubernetes.io/part-of":"spring-sensors","apps.tanzu.vmware.com/scanning":"true","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1682466086870371062","kapp.k14s.io/association":"v1.69e2be903fdf5c5658346852030bdfa4"},"name":"spring-sensors","namespace":"workload-corby"},"spec":{"build":{"env":[{"name":"BP_JVM_VERSION","value":"17"}]},"params":[{"name":"annotations","value":{"autoscaling.knative.dev/minScale":"1"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/cpage-pivotal/spring-sensors"}}}}'
@@ -25,13 +38,36 @@ spec:
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: spring-sensors
+        apps.tanzu.vmware.com/auto-configure-actuators: "false"
         apps.tanzu.vmware.com/scanning: "true"
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: spring-sensors
+        conventions.carto.run/framework: spring-boot
+        tanzu.app.live.view: "true"
+        tanzu.app.live.view.application.actuator.path: actuator
+        tanzu.app.live.view.application.actuator.port: "8080"
+        tanzu.app.live.view.application.flavours: spring-boot
+        tanzu.app.live.view.application.name: spring-sensors
     spec:
       containers:
-      - image: gcr.io/fe-cpage/tap/supply-chain/spring-sensors-workload-corby@sha256:748f80e97f407c2ddca99d16e7713351fded0ab868009bd3e2008ef666b20399
+      - env:
+        - name: JAVA_TOOL_OPTIONS
+          value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
+        image: gcr.io/fe-cpage/tap/supply-chain/spring-sensors-workload-corby@sha256:95aa28e6a254098015949a2addcabcf84bdcac357e40b8f578ad009bdbb788d8
+        livenessProbe:
+          httpGet:
+            path: /livez
+            port: 8080
+            scheme: HTTP
         name: workload
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 8080
+            scheme: HTTP
         resources: {}
         securityContext:
           allowPrivilegeEscalation: false
@@ -42,5 +78,10 @@ spec:
           runAsUser: 1000
           seccompProfile:
             type: RuntimeDefault
+        startupProbe:
+          httpGet:
+            path: /readyz
+            port: 8080
+            scheme: HTTP
       serviceAccountName: default
 
